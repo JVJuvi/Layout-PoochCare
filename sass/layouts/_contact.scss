@@ -1,0 +1,31 @@
+.contact {
+    .contact__content {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        >h1 {
+            @include styleText(40px,600,$color-heading);
+        }
+        >p {
+            @include styleText(20px,400,$color-font);
+        }
+        >form {
+            display: flex;
+            justify-content: space-between;
+            >input {
+                flex-basis: 75%;
+                padding: 14px;
+                border-radius: 8px;
+                border: 1px solid #ced4da;
+                outline: none;
+            }
+            >button {
+                padding: 14px 39px;
+                color: $color-white;
+                background-color: $color-green;
+                border: none;
+                border-radius: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@import "./helpers/variables";
+@import "./helpers/mixin";
+@import "./base/reset";
+
+//components
+@import "./components/slider-info";
+//layout
+@import "./layouts/header";
+@import "./layouts/slider";
+@import "./layouts/introduce";
+@import "./layouts/services";
+@import "./layouts/reason";
+@import "./layouts/stat";
+@import "./layouts/product";
+@import "./layouts/video";
+@import "./layouts/feedback";
+@import "./layouts/contact";
+@import "./layouts/footer";

@@ -1,0 +1,118 @@
+@mixin mobile {
+    @media screen and (max-width: 600px){
+        @content;
+    }
+}
+.header {
+    position: fixed;
+    background-color: $color-white;
+    z-index: 9999;
+    width: 100%;
+    top: 50px;
+    padding: 20px 15px;
+    box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    
+    @include mobile {
+        padding: 10px 15px;
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+
+        .nav-logo {
+            @include styleText(34px,600,$color-green);       
+        }
+
+        .nav-menu {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+
+            >ul {
+                @include mobile {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    height: 0;
+                    width: 100%;
+                    background-color: $color-white;
+                    overflow-y: hidden;
+                    
+                }
+                >li {
+                    display: inline-block;
+                    padding: 10px;
+                    @include mobile {
+                        display: block;
+                        text-align: center
+                    }
+
+                    >a {
+                        @include styleText(20px,400,$color-heading);
+                        position: relative;
+                        transition: all 0.3s;
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            width: 0;
+                            height: 1px;
+                            bottom: -4px;
+                            background-color: $color-green;
+                            transition: all 0.3s;
+                        }
+                        &:hover::before {
+                            width: 100%;
+                        }
+                        &hover {
+                            color: $color-green;
+                        }
+                    }
+                    .active {
+                        color: $color-green !important;
+                    }
+                    .dropdown-menu {
+                        left: -37px !important;
+                        @include mobile {
+                            transform: none !important;
+                            position: static !important;
+                            float: none !important;
+                            text-align: center;    
+                            margin-top: 10px;  
+                        }
+                    }
+                }
+            }
+            .nav-mode {
+                >label {
+                    >input {
+                        display: none;
+                    }
+                    .nav-mode-sun {
+                        display: none;
+                    }
+                    .nav-mode-icon {
+                        font-size: 25px;
+                        margin-right: 20px;
+                    }
+                }
+            }
+            .nav-bars {
+                display: none;
+                @include mobile {
+                    display: block;
+                    line-height: 0;
+                    font-size: 40px;
+                    background-color: $color-green;
+                    color: $color-white;
+                    border-radius: 8px;
+                    border: none;
+                }
+                .nav-bars-close {
+                    display: none;
+                }
+            }
+        }
+    }
+}

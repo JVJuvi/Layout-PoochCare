@@ -1,0 +1,58 @@
+@mixin mobile {
+    @media screen and (max-width: 600px){
+        @content;
+    }
+}
+.reason {
+    .reason__list {
+        .reason__item {
+            align-self: center;
+            .reason__item__img {
+                overflow: hidden;
+                border-radius: 6px;
+                @include mobile {
+                    margin-bottom: 30px;
+                }
+               >img {
+                   max-width: 100%;
+               }
+            }
+            .reason__item__content {
+                text-align: left;
+                >h3 {
+                    @include styleText(18px,400,$color-red);
+                    @include mobile {
+                        margin-bottom: 0;
+                    }
+                }
+                >h1 {
+                    @include mobile {
+                        font-size: 32px;
+                    }      
+                }
+                >p {
+                    margin: 20px 0 30px 0;
+                }
+                >ul{
+                    >li {
+                        @include styleText(16px,600,$color-heading);
+                        margin-bottom: 1.5rem;
+                        @include mobile {
+                            margin-bottom: 1rem;
+                        }
+                        >i {
+                            color: $color-green;
+                            margin-right: 10px;
+                            width: 1.7rem;
+                            height: 1.7rem;
+                            line-height: 1.7rem;
+                            border-radius: 50%;
+                            text-align: center;
+                            background-color: $color-bg-light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

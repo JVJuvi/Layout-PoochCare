@@ -1,0 +1,137 @@
+@mixin mobile {
+    @media screen and (max-width: 600px){
+        @content;
+    }
+}
+.product {
+    background-color: $color-bg-light;
+    text-align: center;
+    .container {
+        >h3 {
+            @include styleText(25px,600,$color-red);
+            @include mobile {
+                font-size: 20px;
+            }
+        }
+        >h1 {
+            @include styleText(48px,600,$color-heading);
+            @include mobile {
+                font-size: 35px;
+            }
+        }
+        .product__list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 90%;
+            margin: 0 5% auto;
+            @include mobile {
+                display: block;
+                width: 70%;
+                margin: 50px auto 0;
+            }
+            .product__item {
+                background-color: $color-white;
+                padding: 3rem;
+                align-self: center;
+                border-radius: 6px;
+                @include mobile {
+                    margin-bottom: 20px
+                }
+                .product__item__content {
+                    >h1 {
+                        @include styleText(25px,600,$color-heading);
+                    }
+                    >h3 {
+                        @include styleText(40px,600,$color-green);
+                        >label {
+                            vertical-align: super;
+                            font-size: 25px
+                        }
+                        >span {
+                            @include styleText(16px,400,#999);
+                        }
+                    }
+                    >ul {
+                        margin-top: 2rem;
+                        >li {
+                            padding: 5px;
+                            color: $color-font;
+                        }
+                    }
+                    >a {
+                        margin-top: 1rem;
+                        padding: 15px 38px;
+                        background-color: $color-green;
+                        color: $color-white;
+                        display: inline-block;
+                        border-radius: 8px;
+                        transition: all 0.3s;
+
+                        &:hover {
+                            background-color: #116E32;
+                        }
+                    }
+                }
+            }
+            .product__item__middle {    
+                box-shadow: 0 10px 30px 0 rgba(17, 17, 17, 0.1);  
+                background-color: $color-white;    
+                transform: scale(1.03);   
+                border-radius: 6px;
+                @include mobile {
+                    transform: none; 
+                    margin-bottom: 20px;  
+                }
+                .product__middle__price {
+                    background-color: $color-green;
+                    padding: 2rem;
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                    >h4 {
+                        display: inline-block;
+                        @include styleText(15px,700,$color-green);
+                        background-color: $color-white;
+                        padding: 10px 20px;
+                        border-radius: 15px;
+                    }
+                    >h1 {
+                        @include styleText(25px,600,$color-white);
+                    }
+                    >h3 {
+                        @include styleText(40px,600,$color-white);
+                        >label {
+                            vertical-align: super;
+                            font-size: 25px;
+                        }
+                        >span {
+                            @include styleText(16px,400,$color-white);
+                        }
+                    }      
+                }   
+                .product__middle__detail {
+                    >ul {
+                        margin-top: 2rem;
+                        >li {
+                            padding: 5px;
+                            color: $color-font;
+                        }
+                    }
+                    >a {
+                        margin-top: 1rem;
+                        padding: 15px 38px;
+                        background-color: $color-green;
+                        color: $color-white;
+                        display: inline-block;
+                        border-radius: 8px;
+                        transition: all 0.3s;
+                        margin-bottom: 3rem;
+
+                        &:hover {
+                            background-color: #116E32;
+                        }
+                    }         
+                }          
+            }
+        }
+    }
+}

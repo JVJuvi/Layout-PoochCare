@@ -1,0 +1,26 @@
+@mixin mobile {
+    @media screen and (max-width: 600px){
+        @content;
+    }
+}
+.stat {
+    background-color: $color-green;
+    .stat__list {
+        .stat__item {
+            text-align: center;
+            >h3 {
+                @include styleText(50px,600,$color-white);
+                @include mobile {
+                    font-size: 40px
+                }
+            }
+            >p {
+                @include styleText(20px,400,$color-white);
+                opacity: 0.8;
+                @include mobile {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
